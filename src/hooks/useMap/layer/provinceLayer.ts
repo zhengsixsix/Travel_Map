@@ -1,6 +1,7 @@
 import { ALL_EXTENT } from "~/data/province";
 import { GeoJSON, Map, SourceVector, Vector } from "~/ol-imports";
 import { CreateAddLayerCache, LayerIndex } from ".";
+import { CreateLayerStyle } from "../style";
 
 export function SetupProvinceLayer(map: Map) {
   for (const key in ALL_EXTENT) {
@@ -11,6 +12,7 @@ export function SetupProvinceLayer(map: Map) {
       }),
     });
     CreateAddLayerCache(LayerIndex.Second, key, layer);
+    layer.setStyle(CreateLayerStyle);
     if (!map.getLayers().getArray().includes(layer)) {
       map.addLayer(layer);
     }

@@ -2,6 +2,7 @@ import { Vector } from "~/ol-imports";
 
 export * from "./baseLayer";
 export * from "./provinceLayer";
+export * from "./layerEvent";
 
 export enum LayerIndex {
   Zero = 0,

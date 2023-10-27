@@ -2,7 +2,13 @@ import { Map, View, fromLonLat, transformExtent } from "~/ol-imports";
 
 import { MAP_DEFAULT_OPTIONS, EPSG4326 } from "./config";
 
-import { SetupBaseLayer, SetupProvinceLayer } from "./layer";
+import {
+  SetupBaseLayer,
+  SetupProvinceLayer,
+  SetupEventListener,
+} from "./layer";
+
+import { SetupMarkerLayer } from "./maker";
 
 import { setupWindowEventListener } from "~/utils/window";
 
@@ -36,6 +42,10 @@ export function SetupMap() {
     map.value = CreateMap();
     SetupBaseLayer(map.value);
     SetupProvinceLayer(map.value);
+
+    SetupMarkerLayer(map.value, watchWindowChange);
+
+    SetupEventListener(map.value);
 
     listen();
   };
