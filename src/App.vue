@@ -6,4 +6,5 @@ import TravelMap from "~/components/TravelMap.vue";
   <TravelMap />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+</style>

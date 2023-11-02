@@ -1,7 +1,7 @@
 import { Layer, Map, click, pointerMove } from "~/ol-imports";
 
 import { CreateMarkerLayer } from "./point";
-import { MarkerPreview } from "./preview";
+import { MarkerPreview, CreateMarkerPreview } from "./preview";
 import { Interaction } from "./interaction";
 
 export function SetupMarkerLayer(map: Map, watchWindowChange: Function) {
@@ -10,17 +10,21 @@ export function SetupMarkerLayer(map: Map, watchWindowChange: Function) {
 
   map.addLayer(containerLayer);
   map.getView().on("change:resolution", containerLayer.changed);
-  const preview = null;
+  const preview = CreateMarkerPreview();
+  map.addOverlay(preview.overlay);
 
-  BindMarkerEvents(map, containerLayer);
+  BindMarkerEvents(map, containerLayer, preview);
 }
 
 // 点击事件
-function BindMarkerEvents(map: Map, layer: Layer, preview?: MarkerPreview) {
+function BindMarkerEvents(map: Map, layer: Layer, preview: MarkerPreview) {
   const interaction = new Interaction(layer, pointerMove);
   interaction.mount(map);
   interaction.on((e) => {
     const { hit, info, coords } = e;
-    console.log(hit, info, coords);
+    map.getTargetElement().style.cursor = hit ? "pointer" : "default";
+    preview.setPreview(info);
+    preview.setStyle(info);
+    preview.setPosition(coords);
   });
 }

@@ -15,9 +15,10 @@ import { setupWindowEventListener } from "~/utils/window";
 import { ref } from "vue";
 
 function CreateMap() {
+  const element = document.querySelector("#map") as HTMLElement;
   const { center, zoom, minZoom, maxZoom, extent } = MAP_DEFAULT_OPTIONS;
   const map = new Map({
-    target: "map",
+    target: element,
     layers: [],
     controls: [],
   });

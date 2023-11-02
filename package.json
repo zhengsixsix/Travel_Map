@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "moment": "^2.29.4",
     "ol": "^8.1.0",
     "sass": "^1.69.5",
     "vue": "^3.3.4"

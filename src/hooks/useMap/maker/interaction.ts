@@ -1,6 +1,6 @@
 import { Coordinate } from "ol/coordinate";
 import { Condition, pointerMove } from "ol/events/condition";
-import { Layer, Map, Select } from "~/ol-imports";
+import { Layer, Map, Select, Point } from "~/ol-imports";
 
 export interface InteractionEvent {
   hit: boolean;
@@ -14,7 +14,7 @@ export class Interaction {
   constructor(layer: Layer, condition: Condition) {
     this.interaction = new Select({
       layers: [layer],
-      condition: pointerMove,
+      condition,
       style: null,
     });
   }
@@ -30,7 +30,13 @@ export class Interaction {
       };
       if (item.hit) {
         const selectedFeature = e.selected[0];
-        console.log(selectedFeature);
+        item.info = selectedFeature.get("info");
+
+        const geometry = selectedFeature.getGeometry();
+        if (geometry instanceof Point) {
+          item.coords = geometry.getCoordinates();
+          
+        }
       }
       callback(item);
     });
