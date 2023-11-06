@@ -1,10 +1,11 @@
-<script setup lang="ts">
-import TravelMap from "~/components/TravelMap.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <TravelMap />
+  <router-view />
 </template>
 
 <style lang="scss">
+.map_container {
+  height: 100%;
+}
 </style>

@@ -11,7 +11,7 @@ onMounted(() => {
   <div id="map"></div>
   <div id="map_marker_preview">
     <div class="img_box">
-      <img />
+      <img src="" />
     </div>
     <div class="info">
       <div class="title" />
@@ -23,9 +23,9 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 #map {
-  width: 100%;
-  height: 100%;
-}
+    width: 100%;
+    height: 100%;
+  }
 #map_marker_preview {
   display: flex;
   box-sizing: border-box;

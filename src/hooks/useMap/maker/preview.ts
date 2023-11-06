@@ -43,7 +43,7 @@ export class MarkerPreview {
     if (!info) return;
     const { preview = "", title = "", date = "", desc = "" } = info;
     const previewContainer = document.querySelector("#map_marker_preview");
-    console.log(previewContainer);
+
     if (previewContainer == null) return;
 
     const img = previewContainer.querySelector("img");
