@@ -1,11 +1,13 @@
 import { ViteSSG } from "vite-ssg";
 import autoRoutes from "pages-generated";
 import { setupRouterScroller } from "vue-router-better-scroller";
-import NProgress from "nprogress";
+import { start, close } from "~/utils/nprogress";
 import "./style.scss";
 import App from "./App.vue";
 
 const routes = autoRoutes.map((i) => {
+  console.log(i);
+
   return {
     ...i,
     alias: i.path.endsWith("/") ? `${i.path}index.html` : `${i.path}.html`,
@@ -29,10 +31,10 @@ export const createApp = ViteSSG(
         behavior: "auto",
       });
       router.beforeEach(() => {
-        NProgress.start();
+        start();
       });
       router.afterEach(() => {
-        NProgress.done();
+        close();
       });
     }
   }

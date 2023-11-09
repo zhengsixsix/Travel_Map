@@ -9,6 +9,11 @@ tags:
   - 福州
 ---
 
-这次去舟山真的很匆忙，周六中午过去，到舟山都已经晚上了，和老妈老姐一起吃了个饭，就睡觉了，第二天在海边玩到下午五点，又匆匆忙忙的回杭州了。
+这次去国庆去平潭很匆忙 挑选在10月2号做飞机落地福州，到了民宿就立马跑去龙王头沙滩看海 看着女朋友高兴的样子我感觉这一趟来的就很值
 
-小侄子不知不觉都一岁了。我十八岁看的海，小侄子一岁看海，时间真快啊，舅舅要越来越老咯。
+<ImgList :src-list="[
+  '/images/travel/fuzhou/pingtan_preview.png',
+  '/images/travel/fuzhou/pingtan_preview.png',
+  '/images/travel/zhejiang/zs_3.jpg',
+  '/images/travel/zhejiang/zs_4.jpg',
+]" />
